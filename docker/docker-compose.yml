@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "7030:80"
+    volumes:
+      - ./../codes:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+
+  php:
+    build:
+      context: .
+      dockerfile: ./php/Dockerfile
+    volumes:
+      - ./../codes:/var/www/html
+
+  # db:
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_DATABASE: mdb_worker
+  #     MYSQL_USER: root
+  #     MYSQL_PASSWORD: root_password
+  #     MYSQL_ROOT_PASSWORD: root_password
+  #   ports:
+  #     - "7032:3306"
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   environment:
+  #     PMA_HOST: db
+  #     MYSQL_ROOT_PASSWORD: root_password
+  #   ports:
+  #     - "7033:80"
+  #   depends_on:
+  #     - db

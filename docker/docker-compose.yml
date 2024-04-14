@@ -4,7 +4,7 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "7030:80"
+      - "7031:80"
     volumes:
       - ./../codes:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf

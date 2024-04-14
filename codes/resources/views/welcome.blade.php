@@ -81,10 +81,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <h1>.MDB Data (Docker, Laravel 7)</h1>
+                    <h1>ZKTeco_Attendance Data</h1>
                 </div>
                 <hr>
-                {{ phpinfo() }}
+                {{-- {{ phpinfo() }} --}}
             </div>
         </div>
     </body>

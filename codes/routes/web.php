@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,11 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/data', function () {
-    try {
-        $data = DB::connection('odbc')->select("SELECT * FROM your_table_name");
-        return response()->json($data);
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()], 500);
-    }
-});
+Route::get('/get-attendance/{ip}', [AttendanceController::class, 'getData']);

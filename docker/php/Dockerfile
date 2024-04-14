@@ -17,7 +17,7 @@ RUN apt-get update && \
 RUN docker-php-ext-install sockets
 
 # Copy custom php.ini file
-COPY ./php.ini /usr/local/etc/php/php.ini
+COPY ./php/php.ini /usr/local/etc/php/php.ini
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
